@@ -1,5 +1,6 @@
 package com.scaler.parkinglot.dto;
 
+import com.scaler.parkinglot.models.ResponseStatus;
 import com.scaler.parkinglot.models.VehicleType;
 
 public class GenerateTicketRequestDto {

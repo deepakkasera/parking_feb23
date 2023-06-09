@@ -1,5 +1,6 @@
 package com.scaler.parkinglot.services;
 
+import com.scaler.parkinglot.exceptions.NoParkingSpotAvailableException;
 import com.scaler.parkinglot.models.*;
 import com.scaler.parkinglot.repositories.TicketRepository;
 import com.scaler.parkinglot.strategy.spotassignmentstrategy.SpotAssignmentStrategy;
@@ -20,7 +21,7 @@ public class TicketService {
         this.ticketRepository = ticketRepository;
     }
 
-    public Ticket generateTicket(String vehicleNumber, VehicleType vehicleType, Long gateId) {
+    public Ticket generateTicket(String vehicleNumber, VehicleType vehicleType, Long gateId) throws NoParkingSpotAvailableException {
         // Using vehicle number we can fetch the vehicle object.
         // If Vehicle object is already there then fetch it otherwise create it.
         Vehicle vehicle = vehicleService.getVehicle(vehicleNumber);
@@ -39,6 +40,10 @@ public class TicketService {
 
         //Assign parking spot to the vehicle.
         ParkingSpot spot = spotAssignmentStrategy.assignSpot(vehicleType, gate);
+
+        if (spot == null) {
+            throw new NoParkingSpotAvailableException("No Parking spot is available");
+        }
 
         ticket.setParkingSpot(spot);
 

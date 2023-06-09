@@ -6,6 +6,8 @@ public class Main {
     }
 }
 
+//First start coding the Models and then code the requirements one by one.
+
 // Issues with generateTicket method :
 
 // 1. If we add more params in the input, then the current users will start failing.

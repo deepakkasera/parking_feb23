@@ -2,6 +2,14 @@ package com.scaler.parkinglot.models;
 
 import java.util.List;
 
+
+//PL - Gate -> 1 : M
+//             1  : 1
+//PL - Gate -> 1:M
+//How do we represent 1:M relation in DB :
+//In the Gates table, for every gate we'll have the Parking Lot id.
+
+
 public class ParkingLot extends BaseModel {
     private List<ParkingFloor> parkingFloors;
     private List<Gate> gates;
