@@ -4,7 +4,6 @@ import com.scaler.parkinglot.models.Vehicle;
 import com.scaler.parkinglot.models.VehicleType;
 
 public class VehicleService {
-
     public Vehicle getVehicle(String vehicleNumber) {
         return null;
     }

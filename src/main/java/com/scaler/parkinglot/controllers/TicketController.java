@@ -10,7 +10,7 @@ import com.scaler.parkinglot.services.TicketService;
 public class TicketController {
     private TicketService ticketService;
 
-    TicketController(TicketService ticketService) {
+    public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
 
@@ -34,5 +34,7 @@ public class TicketController {
         }
     }
 }
+
+
 
 
